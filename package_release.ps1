@@ -9,9 +9,8 @@ $releasePath = Join-Path $repoRoot $OutputDir
 $artifactFiles = @(
     "manifest.json",
     "README.md",
-    "IceItemIcons.dll",
-    "IceSkates.png",
-    "IceSpikes.png"
+    "icon.png",
+    "IceItemIcons.dll"
 )
 
 foreach ($file in $artifactFiles) {

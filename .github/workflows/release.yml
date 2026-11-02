@@ -16,9 +16,8 @@ jobs:
           $files = @(
             "manifest.json",
             "README.md",
-            "IceItemIcons.dll",
-            "IceSkates.png",
-            "IceSpikes.png"
+            "icon.png",
+            "IceItemIcons.dll"
           )
 
           $releaseDir = Join-Path $env:GITHUB_WORKSPACE "release"
