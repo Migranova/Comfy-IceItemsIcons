@@ -1,9 +1,10 @@
 {
-  "author": "Local",
+  "author": "Migrainy",
   "version_number": "1.0.0",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2333"
   ],
   "description": "Client-side icon overrides for vanilla IceShoes and IceSkates in Valheim.",
-  "name": "IceItemIcons"
+  "name": "IceItemIcons",
+  "website_url": "https://github.com/Migranova/Comfy-IceItemsIcons"
 }
