@@ -1,0 +1,9 @@
+{
+  "author": "Local",
+  "version_number": "1.0.0",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2333"
+  ],
+  "description": "Client-side icon overrides for vanilla IceShoes and IceSkates in Valheim.",
+  "name": "IceItemIcons"
+}
