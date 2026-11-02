@@ -1,0 +1,14 @@
+# .NET build output
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Generated release/package artifacts
+releases/
+dist/
+*.zip
+
+# Local compiled plugin binary is generated output, not source
+IceItemIcons.dll

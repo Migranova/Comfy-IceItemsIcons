@@ -1,0 +1,42 @@
+name: Release packaging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package zip
+        shell: pwsh
+        run: |
+          $files = @(
+            "manifest.json",
+            "README.md",
+            "IceItemIcons.dll",
+            "IceSkates.png",
+            "IceSpikes.png"
+          )
+
+          $releaseDir = Join-Path $env:GITHUB_WORKSPACE "release"
+          New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
+
+          $zipPath = Join-Path $releaseDir "IceItemIcons.zip"
+          if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
+
+          foreach ($file in $files) {
+            if (-not (Test-Path (Join-Path $env:GITHUB_WORKSPACE $file))) {
+              throw "Missing package file: $file"
+            }
+          }
+
+          Compress-Archive -Path ($files | ForEach-Object { Join-Path $env:GITHUB_WORKSPACE $_ }) -DestinationPath $zipPath -CompressionLevel Optimal -Force
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: IceItemIcons.zip
+          path: release/IceItemIcons.zip
